@@ -49,7 +49,7 @@ async def ddl_call_back(bot, update):
                 elif entity.type == "url":
                     o = entity.offset
                     l = entity.length
-                    yt_dlp_url = youtube_dl_url[o:o + l]
+                    yt_dlp_url = yt_dlp_url[o:o + l]
         if yt_dlp_url is not None:
             yt_dlp_url = yt_dlp_url.strip()
         if custom_file_name is not None:
