@@ -37,10 +37,10 @@ from PIL import Image
 from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 
 
-async def youtube_dl_call_back(bot, update):
+async def yt_dlp_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
-    tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
+    tg_send_type, yt_dlp_format, yt_dlp_ext = cb_data.split("|")
     thumb_image_path = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + ".jpg"
     save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
@@ -55,15 +55,15 @@ async def youtube_dl_call_back(bot, update):
             revoke=True
         )
         return False
-    youtube_dl_url = update.message.reply_to_message.text
+    yt_dlp_url = update.message.reply_to_message.text
     custom_file_name = str(response_json.get("title")) + \
-        "_" + youtube_dl_format + "." + youtube_dl_ext
-    youtube_dl_username = None
-    youtube_dl_password = None
-    if "|" in youtube_dl_url:
-        url_parts = youtube_dl_url.split("|")
+        "_" + yt_dlp_format + "." + yt_dlp_ext
+    yt_dlp_username = None
+    yt_dlp_password = None
+    if "|" in yt_dlp_url:
+        url_parts = yt_dlp_url.split("|")
         if len(url_parts) == 2:
-            youtube_dl_url = url_parts[0]
+            yt_dlp_url = url_parts[0]
             custom_file_name = url_parts[1]
             if len(custom_file_name) > 64:
                 await update.message.reply_text(
@@ -74,37 +74,37 @@ async def youtube_dl_call_back(bot, update):
                 )
                 return
         elif len(url_parts) == 4:
-            youtube_dl_url = url_parts[0]
+            yf_dlp_url = url_parts[0]
             custom_file_name = url_parts[1]
-            youtube_dl_username = url_parts[2]
-            youtube_dl_password = url_parts[3]
+            yt_dlp_username = url_parts[2]
+            yt_dlp_password = url_parts[3]
         else:
             for entity in update.message.reply_to_message.entities:
                 if entity.type == "text_link":
-                    youtube_dl_url = entity.url
+                    yt_dlp_url = entity.url
                 elif entity.type == "url":
                     o = entity.offset
                     l = entity.length
-                    youtube_dl_url = youtube_dl_url[o:o + l]
-        if youtube_dl_url is not None:
-            youtube_dl_url = youtube_dl_url.strip()
+                    yt_dlp_url = yt_dlp_url[o:o + l]
+        if yt_dlp_url is not None:
+            yt_dlp_url = yt_dlp_url.strip()
         if custom_file_name is not None:
             custom_file_name = custom_file_name.strip()
         # https://stackoverflow.com/a/761825/4723940
-        if youtube_dl_username is not None:
-            youtube_dl_username = youtube_dl_username.strip()
-        if youtube_dl_password is not None:
-            youtube_dl_password = youtube_dl_password.strip()
-        logger.info(youtube_dl_url)
+        if yt_dlp_username is not None:
+            yt_dlp_username = yt_dlp_username.strip()
+        if yt_dlp_password is not None:
+            yt_dlp_password = yt_dlp_password.strip()
+        logger.info(yt_dlp_url)
         logger.info(custom_file_name)
     else:
         for entity in update.message.reply_to_message.entities:
             if entity.type == "text_link":
-                youtube_dl_url = entity.url
+                yt_dlp_url = entity.url
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
-                youtube_dl_url = youtube_dl_url[o:o + l]
+                yt_dl_url = yt_dlp_url[o:o + l]
     await bot.edit_message_text(
         text=Translation.DOWNLOAD_START,
         chat_id=update.message.chat.id,
@@ -121,23 +121,23 @@ async def youtube_dl_call_back(bot, update):
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "-c",
             "--max-filesize", str(Config.TG_MAX_FILE_SIZE),
             "--prefer-ffmpeg",
             "--extract-audio",
-            "--audio-format", youtube_dl_ext,
-            "--audio-quality", youtube_dl_format,
-            youtube_dl_url,
+            "--audio-format", yt_dlp_ext,
+            "--audio-quality", yt_dlp_format,
+            yt_dlp_url,
             "-o", download_directory
         ]
     else:
         # command_to_exec = ["youtube-dl", "-f", youtube_dl_format, "--hls-prefer-ffmpeg", "--recode-video", "mp4", "-k", youtube_dl_url, "-o", download_directory]
         minus_f_format = youtube_dl_format
-        if "youtu" in youtube_dl_url or "zee5" in youtube_dl_url:
-            minus_f_format = youtube_dl_format + "+bestaudio"
+        if "youtu" in yt_dlp_url or "zee5" in yt_dlp_url:
+            minus_f_format = yt_dlp_format + "+bestaudio"
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "-c",
             "--max-filesize", str(Config.TG_MAX_FILE_SIZE),
             "--embed-subs",
