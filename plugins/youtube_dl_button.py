@@ -133,7 +133,7 @@ async def yt_dlp_call_back(bot, update):
         ]
     else:
         # command_to_exec = ["youtube-dl", "-f", youtube_dl_format, "--hls-prefer-ffmpeg", "--recode-video", "mp4", "-k", youtube_dl_url, "-o", download_directory]
-        minus_f_format = youtube_dl_format
+        minus_f_format = yt_dlp_format
         if "youtu" in yt_dlp_url or "zee5" in yt_dlp_url:
             minus_f_format = yt_dlp_format + "+bestaudio"
         command_to_exec = [
@@ -142,18 +142,18 @@ async def yt_dlp_call_back(bot, update):
             "--max-filesize", str(Config.TG_MAX_FILE_SIZE),
             "--embed-subs",
             "-f", minus_f_format,
-            "--hls-prefer-ffmpeg", youtube_dl_url,
+            "--hls-prefer-ffmpeg", yt_dl_url,
             "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
         command_to_exec.append(Config.HTTP_PROXY)
-    if youtube_dl_username is not None:
+    if yt_dlp_username is not None:
         command_to_exec.append("--username")
-        command_to_exec.append(youtube_dl_username)
-    if youtube_dl_password is not None:
+        command_to_exec.append(yt_dlp_username)
+    if yt_dlp_password is not None:
         command_to_exec.append("--password")
-        command_to_exec.append(youtube_dl_password)
+        command_to_exec.append(yt_dlp_password)
     command_to_exec.append("--no-warnings")
     # command_to_exec.append("--quiet")
     logger.info(command_to_exec)
