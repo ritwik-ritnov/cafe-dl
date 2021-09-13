@@ -41,8 +41,8 @@ async def echo(bot, update):
     # )
     logger.info(update.from_user)
     url = update.text
-    youtube_dl_username = None
-    youtube_dl_password = None
+    yt_dlp_username = None
+    yt_dlp_password = None
     file_name = None
     if "|" in url:
         url_parts = url.split("|")
@@ -52,8 +52,8 @@ async def echo(bot, update):
         elif len(url_parts) == 4:
             url = url_parts[0]
             file_name = url_parts[1]
-            youtube_dl_username = url_parts[2]
-            youtube_dl_password = url_parts[3]
+            yt_dlp_username = url_parts[2]
+            yt_dlp_password = url_parts[3]
         else:
             for entity in update.entities:
                 if entity.type == "text_link":
@@ -67,10 +67,10 @@ async def echo(bot, update):
         if file_name is not None:
             file_name = file_name.strip()
         # https://stackoverflow.com/a/761825/4723940
-        if youtube_dl_username is not None:
-            youtube_dl_username = youtube_dl_username.strip()
-        if youtube_dl_password is not None:
-            youtube_dl_password = youtube_dl_password.strip()
+        if yt_dlp_username is not None:
+            yt_dlp_username = yt_dlp_username.strip()
+        if yt_dlp_password is not None:
+            yt_dlp_password = yt_dlp_password.strip()
         logger.info(url)
         logger.info(file_name)
     else:
@@ -83,7 +83,7 @@ async def echo(bot, update):
                 url = url[o:o + l]
     if Config.HTTP_PROXY != "":
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "--no-warnings",
             "--youtube-skip-dash-manifest",
             "-j",
@@ -92,18 +92,18 @@ async def echo(bot, update):
         ]
     else:
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "--no-warnings",
             "--youtube-skip-dash-manifest",
             "-j",
             url
         ]
-    if youtube_dl_username is not None:
+    if yt_dlp_username is not None:
         command_to_exec.append("--username")
-        command_to_exec.append(youtube_dl_username)
-    if youtube_dl_password is not None:
+        command_to_exec.append(yt_dlp_username)
+    if yt_dlp_password is not None:
         command_to_exec.append("--password")
-        command_to_exec.append(youtube_dl_password)
+        command_to_exec.append(yt_dlp_password)
     # logger.info(command_to_exec)
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
