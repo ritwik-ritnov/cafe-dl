@@ -32,38 +32,38 @@ from PIL import Image
 async def ddl_call_back(bot, update):
     logger.info(update)
     cb_data = update.data
-    tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("=")
+    tg_send_type, yt_dlp_format, yt_dlp_ext = cb_data.split("=")
     thumb_image_path = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + ".jpg"
-    youtube_dl_url = update.message.reply_to_message.text
-    custom_file_name = os.path.basename(youtube_dl_url)
-    if "|" in youtube_dl_url:
-        url_parts = youtube_dl_url.split("|")
+    yt_dlp_url = update.message.reply_to_message.text
+    custom_file_name = os.path.basename(yt_dlp_url)
+    if "|" in yt_dlp_url:
+        url_parts = yt_dlp_url.split("|")
         if len(url_parts) == 2:
-            youtube_dl_url = url_parts[0]
+            yt_dlp_url = url_parts[0]
             custom_file_name = url_parts[1]
         else:
             for entity in update.message.reply_to_message.entities:
                 if entity.type == "text_link":
-                    youtube_dl_url = entity.url
+                    yt_dlp_url = entity.url
                 elif entity.type == "url":
                     o = entity.offset
                     l = entity.length
-                    youtube_dl_url = youtube_dl_url[o:o + l]
-        if youtube_dl_url is not None:
-            youtube_dl_url = youtube_dl_url.strip()
+                    yt_dlp_url = youtube_dl_url[o:o + l]
+        if yt_dlp_url is not None:
+            yt_dlp_url = yt_dlp_url.strip()
         if custom_file_name is not None:
             custom_file_name = custom_file_name.strip()
-        logger.info(youtube_dl_url)
+        logger.info(yt_dlp_url)
         logger.info(custom_file_name)
     else:
         for entity in update.message.reply_to_message.entities:
             if entity.type == "text_link":
-                youtube_dl_url = entity.url
+                yt_dlp_url = entity.url
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
-                youtube_dl_url = youtube_dl_url[o:o + l]
+                yt_dlp_url = yt_dlp_url[o:o + l]
     caption_str = ""
     caption_str += "<b>"
     caption_str += custom_file_name
@@ -92,7 +92,7 @@ async def ddl_call_back(bot, update):
             await download_coroutine(
                 bot,
                 session,
-                youtube_dl_url,
+                yt_dlp_url,
                 download_directory,
                 update.message.chat.id,
                 update.message.message_id,
@@ -146,22 +146,16 @@ async def ddl_call_back(bot, update):
                     height = metadata.get("height")
                 if tg_send_type == "vm":
                     height = width
-                # resize image
-                # ref: https://t.me/PyrogramChat/44663
-                # https://stackoverflow.com/a/21669827/4723940
                 Image.open(thumb_image_path).convert(
                     "RGB").save(thumb_image_path)
                 img = Image.open(thumb_image_path)
-                # https://stackoverflow.com/a/37631799/4723940
-                # img.thumbnail((90, 90))
                 if tg_send_type == "file":
                     img.resize((320, height))
                 else:
                     img.resize((90, height))
                 img.save(thumb_image_path, "JPEG")
-                # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
             else:
-                thumb_image_path = 'moviez_trends.jpg'
+                thumb_image_path = 'moviez_cafe.jpg'
             start_time = time.time()
             # try to upload file
             if tg_send_type == "audio":
