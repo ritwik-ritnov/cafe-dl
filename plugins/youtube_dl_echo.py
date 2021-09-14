@@ -95,7 +95,7 @@ async def echo(bot, update):
             "--no-warnings",
             "-j",
             url,
-            "--geo-bypass-country", IN
+            "--geo-bypass-country", Config.GEO_COUNTRY
         ]
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
