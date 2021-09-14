@@ -94,9 +94,20 @@ async def echo(bot, update):
             "yt-dlp",
             "--no-warnings",
             "-j",
-            "--geo-bypass-country", Config.GEO_COUNTRY,
             url
         ]
+    if "hotstar" in url:
+        command_to_exec.append("--geo-bypass-country")
+        command_to_exec.append("IN")
+    if "hoichoi" in url:
+        command_to_exec.append("--geo-bypass-country")
+        command_to_exec.append("GB")
+    if "aha" in url:
+        command_to_exec.append("--geo-bypass-country")
+        command_to_exec.append("GB")
+    if "bbc" in url:
+        command_to_exec.append("--geo-bypass-country")
+        command_to_exec.append("GB")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
