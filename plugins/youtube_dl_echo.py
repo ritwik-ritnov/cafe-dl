@@ -86,7 +86,7 @@ async def echo(bot, update):
             "yt-dlp",
             "--no-warnings",
             "-j",
-            "--proxy", Config.HTTP_PROXY
+            "--proxy", Config.HTTP_PROXY,
             url
         ]
     else:
