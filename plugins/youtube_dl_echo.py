@@ -85,7 +85,6 @@ async def echo(bot, update):
         command_to_exec = [
             "yt-dlp",
             "--no-warnings",
-            "--youtube-skip-dash-manifest",
             "-j",
             url,
             "--proxy", Config.HTTP_PROXY
@@ -94,9 +93,9 @@ async def echo(bot, update):
         command_to_exec = [
             "yt-dlp",
             "--no-warnings",
-            "--youtube-skip-dash-manifest",
             "-j",
-            url
+            url,
+            "--geo-bypass-country", IN
         ]
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
