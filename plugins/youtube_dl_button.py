@@ -74,7 +74,7 @@ async def yt_dlp_call_back(bot, update):
                 )
                 return
         elif len(url_parts) == 4:
-            yf_dlp_url = url_parts[0]
+            yt_dlp_url = url_parts[0]
             custom_file_name = url_parts[1]
             yt_dlp_username = url_parts[2]
             yt_dlp_password = url_parts[3]
