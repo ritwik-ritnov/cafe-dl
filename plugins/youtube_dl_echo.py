@@ -86,16 +86,16 @@ async def echo(bot, update):
             "yt-dlp",
             "--no-warnings",
             "-j",
-            url,
             "--proxy", Config.HTTP_PROXY
+            url
         ]
     else:
         command_to_exec = [
             "yt-dlp",
             "--no-warnings",
             "-j",
-            url,
-            "--geo-bypass-country", Config.GEO_COUNTRY
+            "--geo-bypass-country", Config.GEO_COUNTRY,
+            url
         ]
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
