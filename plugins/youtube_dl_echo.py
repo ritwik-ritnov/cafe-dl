@@ -105,9 +105,9 @@ async def echo(bot, update):
     if "aha" in url:
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("GB")
-    if "bbc" in url:
+    if "chorki" in url:
         command_to_exec.append("--geo-bypass-country")
-        command_to_exec.append("GB")
+        command_to_exec.append("BD")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
