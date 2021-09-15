@@ -101,7 +101,7 @@ async def echo(bot, update):
         command_to_exec.append("IN")
     if "hoichoi" in url:
         command_to_exec.append("--geo-bypass-country")
-        command_to_exec.append("GB")
+        command_to_exec.append("BD")
     if "aha" in url:
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("GB")
