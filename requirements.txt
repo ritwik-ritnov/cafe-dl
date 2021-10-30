@@ -14,4 +14,4 @@ google-auth-oauthlib>=0.4.1,<0.10.0
 tenacity>=6.0.0
 python-magic
 appdirs
-git+https://github.com/yt-dlp/yt-dlp.git
+git+https://github.com/ritwik-ritnov/yt-dlp-R.git
