@@ -140,7 +140,8 @@ async def yt_dlp_call_back(bot, update):
             "yt-dlp",
             "-c", yt_dlp_url,
             "--embed-subs",
-            "-S", 'res:720',
+            "--sub-format", "srt",
+            "-f", minus_f_format,
             "--cookies", "./cookies.txt",
             "-o", download_directory
         ]
