@@ -145,7 +145,8 @@ async def yt_dlp_call_back(bot, update):
             "--convert-subs", "srt",
             "-f", minus_f_format,
             "--cookies", "./cookies.txt",
-            "--parse-metadata", "Moviez Café™"
+            "--parse-metadata", "Moviez Café™",
+            "--remux-video", "mkv",
             "-o", yfile
         ]
     if Config.HTTP_PROXY != "":
