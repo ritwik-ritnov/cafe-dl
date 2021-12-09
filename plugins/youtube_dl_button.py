@@ -141,6 +141,7 @@ async def yt_dlp_call_back(bot, update):
             "-c", yt_dlp_url,
             "--embed-subs",
             "-S", 'res:720',
+            "--cookies", ./cookies.txt,
             "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
