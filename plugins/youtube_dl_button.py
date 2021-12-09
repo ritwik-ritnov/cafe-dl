@@ -138,11 +138,9 @@ async def yt_dlp_call_back(bot, update):
             minus_f_format = yt_dlp_format + "+bestaudio"
         command_to_exec = [
             "yt-dlp",
-            "-c",
-            "--max-filesize", str(Config.TG_MAX_FILE_SIZE),
+            "-c", yt_dlp_url,
             "--embed-subs",
-            "-f", minus_f_format,
-            "--hls-prefer-ffmpeg", yt_dl_url,
+            "-S", 'res:720',
             "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
