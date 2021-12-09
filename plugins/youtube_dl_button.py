@@ -118,6 +118,8 @@ async def yt_dlp_call_back(bot, update):
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
     download_directory = tmp_directory_for_each_user + "/" + custom_file_name
+    xfile = download_directory.strip(".mp4")
+    yfile = xfile+".mkv"
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
@@ -140,10 +142,11 @@ async def yt_dlp_call_back(bot, update):
             "yt-dlp",
             "-c", yt_dlp_url,
             "--embed-subs",
-            "--sub-format", "srt",
+            "--convert-subs", "srt",
             "-f", minus_f_format,
             "--cookies", "./cookies.txt",
-            "-o", download_directory
+            "--parse-metadata", "Moviez Café™*
+            "-o", yfile
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
