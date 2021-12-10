@@ -138,12 +138,13 @@ async def yt_dlp_call_back(bot, update):
             minus_f_format = yt_dlp_format + "+bestaudio"
         command_to_exec = [
             "yt-dlp",
-            "-c", yt_dlp_url,
+            "-c",
             "-f", minus_f_format,
             "--embed-subs",
             "--convert-subs", "srt",           
             "--cookies", "./cookies.txt",
             "--remux-video", "mkv",
+            yt_dlp_url,
             "-o", download_directory,
             "--ppa", "ffmpeg_i1: -metadata 'Moviez Café™'", "ffmpeg_i2: -metadata:s:v title='by W∆L13R'", "ffmpeg_i3: -metadata:s:a title='by W∆L13R'", "ffmpeg_i3: -metadata:s:s title='by W∆L13R'"
         ]
