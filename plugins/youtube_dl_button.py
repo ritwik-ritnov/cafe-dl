@@ -147,7 +147,7 @@ async def yt_dlp_call_back(bot, update):
             "--cookies", "./cookies.txt",
             "--add-metadata", "title:Moviez Café™",
             "--remux-video", "mkv",
-            "-o", xfile
+            "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
@@ -190,7 +190,7 @@ async def yt_dlp_call_back(bot, update):
         time_taken_for_download = (end_one -start).seconds
         file_size = Config.TG_MAX_FILE_SIZE + 1
         try:
-            file_size = os.stat(yfile).st_size
+            file_size = os.stat(download_directory).st_size
         except FileNotFoundError as exc:
             download_directory = os.path.splitext(download_directory)[0] + "." + "mkv"
             # https://stackoverflow.com/a/678242/4723940
@@ -204,7 +204,7 @@ async def yt_dlp_call_back(bot, update):
         else:
             is_w_f = False
             images = await generate_screen_shots(
-                yfile,
+                download_directory,
                 tmp_directory_for_each_user,
                 is_w_f,
                 Config.DEF_WATER_MARK_FILE,
@@ -278,7 +278,7 @@ async def yt_dlp_call_back(bot, update):
             elif tg_send_type == "file":
                 await bot.send_document(
                     chat_id=update.message.chat.id,
-                    document=yfile,
+                    document=download_directory,
                     thumb=thumb_image_path,
                     caption=description,
                     parse_mode="HTML",
@@ -334,7 +334,7 @@ async def yt_dlp_call_back(bot, update):
             media_album_p = []
             if images is not None:
                 i = 0
-                caption = "© @AnyDLBot"
+                caption = "--"
                 if is_w_f:
                     caption = "/upgrade to Plan D to remove the watermark\n© @AnyDLBot"
                 for image in images:
