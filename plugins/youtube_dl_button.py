@@ -141,12 +141,10 @@ async def yt_dlp_call_back(bot, update):
             "-c",
             "-f", minus_f_format,
             "--embed-subs",
-            "--convert-subs", "srt",           
-            "--cookies", "./cookies.txt",
+            "--convert-subs", "srt",
             "--remux-video", "mkv",
             yt_dlp_url,
-            "-o", download_directory,
-            "--ppa", "ffmpeg_i1: -metadata 'Moviez Café™'", "ffmpeg_i2: -metadata:s:v title='by W∆L13R'", "ffmpeg_i3: -metadata:s:a title='by W∆L13R'", "ffmpeg_i3: -metadata:s:s title='by W∆L13R'"
+            "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
@@ -157,6 +155,9 @@ async def yt_dlp_call_back(bot, update):
     if yt_dlp_password is not None:
         command_to_exec.append("--password")
         command_to_exec.append(yt_dlp_password)
+    if "hoichoi" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies.txt")
     command_to_exec.append("--no-warnings")
     # command_to_exec.append("--quiet")
     logger.info(command_to_exec)
