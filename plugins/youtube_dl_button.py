@@ -141,9 +141,9 @@ async def yt_dlp_call_back(bot, update):
         command_to_exec = [
             "yt-dlp",
             "-c", yt_dlp_url,
-            "--embed-subs",
-            "--convert-subs", "srt",
             "-f", minus_f_format,
+            "--embed-subs",
+            "--convert-subs", "srt",           
             "--cookies", "./cookies.txt",
             "--add-metadata", "title:Moviez Café™",
             "-o", download_directory
