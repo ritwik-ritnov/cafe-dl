@@ -106,8 +106,8 @@ async def echo(bot, update):
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("GB")
     if "chorki" in url:
-        command_to_exec.append("--geo-bypass-country")
-        command_to_exec.append("BD")
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies2.txt")
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
