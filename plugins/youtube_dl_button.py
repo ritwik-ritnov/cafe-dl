@@ -118,8 +118,6 @@ async def yt_dlp_call_back(bot, update):
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
     download_directory = tmp_directory_for_each_user + "/" + custom_file_name
-    xfile = download_directory.strip(".mp4")
-    download_directory = xfile+".mkv"
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
@@ -145,6 +143,7 @@ async def yt_dlp_call_back(bot, update):
             "--embed-subs",
             "--convert-subs", "srt",           
             "--cookies", "./cookies.txt",
+            "--remux-video", "mkv",
             "-o", download_directory
         ]
     if Config.HTTP_PROXY != "":
