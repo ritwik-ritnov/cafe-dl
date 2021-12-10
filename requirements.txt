@@ -14,4 +14,3 @@ tenacity>=6.0.0
 python-magic
 yt-dlp
 appdirs
-
