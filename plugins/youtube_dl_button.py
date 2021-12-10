@@ -161,6 +161,9 @@ async def yt_dlp_call_back(bot, update):
     if "chorki" in yt_dlp_url:
         command_to_exec.append("--cookies")
         command_to_exec.append("./cookies2.txt")
+    if "aha" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies3.txt")
     command_to_exec.append("--no-warnings")
     # command_to_exec.append("--quiet")
     logger.info(command_to_exec)
