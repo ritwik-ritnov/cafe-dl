@@ -119,7 +119,7 @@ async def yt_dlp_call_back(bot, update):
         os.makedirs(tmp_directory_for_each_user)
     download_directory = tmp_directory_for_each_user + "/" + custom_file_name
     xfile = download_directory.strip(".mp4")
-    yfile = xfile+"%(ext)s"
+    yfile = xfile+".mkv"
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
@@ -147,7 +147,7 @@ async def yt_dlp_call_back(bot, update):
             "--cookies", "./cookies.txt",
             "--add-metadata", "title:Moviez Café™",
             "--remux-video", "mkv",
-            "-o", yfile
+            "-o", xfile
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
@@ -204,7 +204,7 @@ async def yt_dlp_call_back(bot, update):
         else:
             is_w_f = False
             images = await generate_screen_shots(
-                download_directory,
+                yfile,
                 tmp_directory_for_each_user,
                 is_w_f,
                 Config.DEF_WATER_MARK_FILE,
@@ -278,7 +278,7 @@ async def yt_dlp_call_back(bot, update):
             elif tg_send_type == "file":
                 await bot.send_document(
                     chat_id=update.message.chat.id,
-                    document=download_directory,
+                    document=yfile,
                     thumb=thumb_image_path,
                     caption=description,
                     parse_mode="HTML",
