@@ -103,8 +103,8 @@ async def echo(bot, update):
         command_to_exec.append("--cookies")
         command_to_exec.append("./cookies.txt")
     if "aha" in url:
-        command_to_exec.append("--geo-bypass-country")
-        command_to_exec.append("GB")
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies3.txt")
     if "chorki" in url:
         command_to_exec.append("--cookies")
         command_to_exec.append("./cookies2.txt")
