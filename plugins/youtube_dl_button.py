@@ -143,9 +143,9 @@ async def yt_dlp_call_back(bot, update):
             "--embed-subs",
             "--convert-subs", "srt",           
             "--cookies", "./cookies.txt",
-            "--ppa", "ffmpeg_i1: -metadata 'Moviez Café™'", "ffmpeg_i2: -metadata:s:v title='by W∆L13R'", "ffmpeg_i3: -metadata:s:a title='by W∆L13R'", "ffmpeg_i3: -metadata:s:s title='by W∆L13R'", 
             "--remux-video", "mkv",
-            "-o", download_directory
+            "-o", download_directory,
+            "--ppa", "ffmpeg_i1: -metadata 'Moviez Café™'", "ffmpeg_i2: -metadata:s:v title='by W∆L13R'", "ffmpeg_i3: -metadata:s:a title='by W∆L13R'", "ffmpeg_i3: -metadata:s:s title='by W∆L13R'"
         ]
     if Config.HTTP_PROXY != "":
         command_to_exec.append("--proxy")
