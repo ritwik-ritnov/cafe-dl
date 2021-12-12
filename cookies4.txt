@@ -1,0 +1,21 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+www.hotstar.com	FALSE	/in	TRUE	1670870891	userUP	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1bV9hY2Nlc3MiLCJleHAiOjE2Mzk0MjEyOTAsImlhdCI6MTYzOTMzNDg5MCwiaXNzIjoiVFMiLCJqdGkiOiI2ZjRiNmJlMmRkYmI0YmQwOGYwOTQxNGRiZDQ5ZmY2NCIsInN1YiI6IntcImhJZFwiOlwiNDllMTg5YzU1ZGY2NGVkZWI1ZmM2YmJmOTQwNTc0MDFcIixcInBJZFwiOlwiMGEyM2M1ZTY4NGVmNGIzN2FkMTM2MmZlMzg0N2RlODBcIixcIm5hbWVcIjpcIlJpdHdpayBSb3lcIixcInBob25lXCI6XCI3Nzk3OTAxMjYzXCIsXCJpcFwiOlwiMjAyLjE0Mi45OS4yMDBcIixcImNvdW50cnlDb2RlXCI6XCJpblwiLFwiY3VzdG9tZXJUeXBlXCI6XCJudVwiLFwidHlwZVwiOlwicGhvbmVcIixcImlzRW1haWxWZXJpZmllZFwiOmZhbHNlLFwiaXNQaG9uZVZlcmlmaWVkXCI6dHJ1ZSxcImRldmljZUlkXCI6XCJlMGY1ZGQyMC0wNWU3LTRiYmQtYmYzOC00YWQyOGM4NjNjNDdcIixcInByb2ZpbGVcIjpcIkFEVUxUXCIsXCJ2ZXJzaW9uXCI6XCJ2MlwiLFwic3Vic2NyaXB0aW9uc1wiOntcImluXCI6e1wiSG90c3Rhck1vYmlsZVwiOntcInN0YXR1c1wiOlwiU1wiLFwiZXhwaXJ5XCI6XCIyMDIyLTEwLTI3VDA3OjA3OjEzLjAwMFpcIixcInNob3dBZHNcIjpcIjFcIixcImNudFwiOlwiMVwifX19LFwiZW50XCI6XCJDamNLQlFvRENnRUZFaTRTQjJGdVpISnZhV1FTQTJsdmN4SUhhbWx2TFd4NVpob0NjMlFhQW1oa0lnTnpaSElxQm5OMFpYSmxiMWdCQ2cwU0N3Z0JPQUZBQVZEUUJWZ0JDaUlLR2dvT0VnVTFOVGd6TmhJRk5qUXdORGtLQ0NJR1ptbHlaWFIyRWdRNFpGZ0JDcG9CQ2dVS0F3b0JBQktRQVJJSFlXNWtjbTlwWkJJRGFXOXpFZ2RxYVc4dGJIbG1FZ2xoYm1SeWIybGtkSFlTQm1acGNtVjBkaElIWVhCd2JHVjBkaElFY205cmRSSURkMlZpRWdSdGQyVmlFZ2QwYVhwbGJuUjJFZ1YzWldKdmN4SUdhbWx2YzNSaUVncGphSEp2YldWallYTjBFZ1IwZG05ekVnUndZM1IyRWdOcWFXOGFBbk5rR2dKb1pDSURjMlJ5S2daemRHVnlaVzlZQVJJSkNBRVE2T0dRd3NFd1wiLFwiaXNzdWVkQXRcIjoxNjM5MzM0ODkwNTI1fSIsInZlcnNpb24iOiIxXzAifQ.QdgXI23nWFRhDPFcH88O392mqDeHrJT94ganyAhVU_4
+www.hotstar.com	FALSE	/	TRUE	1670870902	device_id	e0f5dd20-05e7-4bbd-bf38-4ad28c863c47
+.hotstar.com	TRUE	/	TRUE	1954867481	hs_uid	e0f5dd20-05e7-4bbd-bf38-4ad28c863c47
+www.hotstar.com	FALSE	/	TRUE	1670870682	userLocale	eng
+www.hotstar.com	FALSE	/	FALSE	1639939488	X-Akamai-Device	mweb
+.hotstar.com	TRUE	/	FALSE	1670870757	ajs_group_id	null
+.hotstar.com	TRUE	/	FALSE	1647110725	_gcl_au	1.1.421676317.1639334726
+.hotstar.com	TRUE	/	FALSE	1702406911	_ga	GA1.2.1066552113.1639334727
+.hotstar.com	TRUE	/	FALSE	1639421311	_gid	GA1.2.62528084.1639334727
+.hotstar.com	TRUE	/	FALSE	1647110902	_fbp	fb.1.1639334727914.1380824426
+www.hotstar.com	FALSE	/	TRUE	1670870735	facebookCookie	{"deviceId":"e0f5dd20-05e7-4bbd-bf38-4ad28c863c47","fbId":"","emailId":"","isProfileRequired":false,"token":"","dateOfBirth":"","age":"","gender":""}
+.hotstar.com	TRUE	/	FALSE	1670870911	ajs_user_id	%220a23c5e684ef4b37ad1362fe3847de80%22
+.hotstar.com	TRUE	/	FALSE	1670870736	ajs_anonymous_id	%22ef729260-28a7-4c0b-b9f5-1dd2197a5eec%22
+www.hotstar.com	FALSE	/	TRUE	0	userPlanAttributes	{"packages":[],"attributes":{"is_device_limit_upgradable":true,"min_expiry_time":1666854433000},"client_entitlements":{"max_concurrent_signins":1,"playback_list_platforms":["android","ios","jio-lyf"],"list_video_resolution_text":["sd","hd"],"list_video_dynamic_range":null,"list_audio_channel_text":null,"max_concurrent_playbacks":1,"is_casting_allowed":true,"max_auto_bitrate":0,"max_auto_resolution":720,"show_ads":true,"requested_subs_tag":null}}
+.hotstar.com	TRUE	/	FALSE	1639421159	_uetsid	ae1d64a05b7b11ecbde60bc3ca3e74b5
+.hotstar.com	TRUE	/	FALSE	1673030759	_uetvid	ae1ffdd05b7b11ec8f8a63103ed4096c
+.hotstar.com	TRUE	/	FALSE	1639334950	_gat_UA-53733575-1	1
