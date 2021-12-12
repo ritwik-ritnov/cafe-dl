@@ -99,6 +99,9 @@ async def echo(bot, update):
     if "hotstar" in url:
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("IN")
+    if "hotstar" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies4.txt")
     if "hoichoi" in url:
         command_to_exec.append("--cookies")
         command_to_exec.append("./cookies.txt")
