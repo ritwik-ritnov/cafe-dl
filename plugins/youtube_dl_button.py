@@ -152,6 +152,12 @@ async def yt_dlp_call_back(bot, update):
     if yt_dlp_username is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dlp_username)
+    if "hotstar" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies4.txt")
+    if "hotstar" in yt_dlp_url:
+        command_to_exec.append("--geo-bypass-country")
+        command_to_exec.append("IN")
     if yt_dlp_password is not None:
         command_to_exec.append("--password")
         command_to_exec.append(yt_dlp_password)
